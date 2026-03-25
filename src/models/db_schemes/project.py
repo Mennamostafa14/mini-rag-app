@@ -14,5 +14,16 @@ class Project(BaseModel):
     # to ignore ObjectId error
     class Config:
         arbitrary_types_allowed=True
-
+    
+    @classmethod
+    def get_indexes(cls):
+        return [
+            {
+                "key":[
+                    ("project_id",1) # ترتيب تصاعدي
+                ],
+                "name":"project_is_index_1",
+                "unique":True
+            }
+        ]
 
