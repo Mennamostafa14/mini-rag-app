@@ -22,7 +22,7 @@ class Project(BaseModel):
                 "key":[
                     ("project_id",1) # ترتيب تصاعدي
                 ],
-                "name":"project_is_index_1",
+                "name":"project_id_index_1",
                 "unique":True
             }
         ]
