@@ -26,3 +26,8 @@ class DataChunk(BaseModel):
                 "unique":False
             }
         ]
+
+# schema for the rerieved data from database after semantic search
+class RetrivedDocument(BaseModel):
+    text:str
+    score:float
