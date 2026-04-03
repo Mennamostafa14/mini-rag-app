@@ -28,6 +28,6 @@ class DataChunk(BaseModel):
         ]
 
 # schema for the rerieved data from database after semantic search
-class RetrivedDocument(BaseModel):
+class RetrievedDocument(BaseModel):
     text:str
     score:float

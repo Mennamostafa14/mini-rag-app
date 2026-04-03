@@ -20,7 +20,6 @@ class Settings(BaseSettings):
     GENERATION_MODEL_ID: str = None
     EMBEDDING_MODEL_ID: str = None
     EMBEDDING_MODEL_SIZE: int = None
-
     INPUT_DAFAULT_MAX_CHARACTERS: int = None
     GENERATION_DAFAULT_MAX_TOKENS: int = None
     GENERATION_DAFAULT_TEMPERATURE: float = None
@@ -29,6 +28,9 @@ class Settings(BaseSettings):
     VECTOR_DB_PATH:str
     VECTOR_DB_DISTANCE_METHOD:str=None
     
+    PRIMARY_LANG :str = "en"
+    DEFAULT_LANG :str = "en"
+
     class Config:
         env_file=".env"
 
