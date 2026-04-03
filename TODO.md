@@ -1,9 +1,0 @@
-# Fix CoHere Embedding Rate Limit (100 calls/min Trial Key)
-## Steps:
-- [x] 1. Edit src/stores/llm/LLMInterface.py: Add @abstractmethod def embed_texts...
-- [x] 2. Edit src/stores/llm/providers/CoHereProvider.py: Implement embed_texts...
-- [x] 3. Edit src/stores/llm/providers/OpenAIProvider.py: Implement embed_texts...
-- [x] 4. Edit src/controllers/NLPController.py: Replace loop with embed_texts call
-- [ ] 5. Test: Restart server, call /api/v1/nlp/index/push/{project_id} POST with small project
-- [ ] 6. Optional: Add retry logic
-
