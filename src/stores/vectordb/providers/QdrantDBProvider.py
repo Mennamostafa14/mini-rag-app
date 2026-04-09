@@ -77,7 +77,8 @@ class QdrantDBProvider(VectorDBInterface):
                             "text": text, "metadata": metadata
                         }
                     )
-                ]
+                ],
+                wait=True
             )
         except Exception as e:
             self.logger.error(f"Error while inserting batch: {e}")
@@ -119,6 +120,7 @@ class QdrantDBProvider(VectorDBInterface):
                 _ = self.client.upload_records(
                     collection_name=collection_name,
                     records=batch_records,
+                    wait=True
                 )
             except Exception as e:
                 self.logger.error(f"Error while inserting batch: {e}")
