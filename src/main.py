@@ -5,12 +5,17 @@ from helpers.config import get_settings
 from stores.llm.LLMProviderFactory import LLMProviderFactory
 from stores.vectordb.VectorDBProviderFactory import VectorDBProviderFactory
 from stores.llm.templates.template_parser import TempalteParser
+
+
 app=FastAPI()
+
 @app.on_event("startup")
 async def startup_db_client():
     settings=get_settings()
+
     app.mongo_conn = AsyncIOMotorClient(settings.MONGODB_URL)
     app.db_client=app.mongo_conn[settings.MONGODB_DATABASE]
+
 
     llm_provider_factory=LLMProviderFactory(settings)
     vectordb_provider_factory = VectorDBProviderFactory(settings)
@@ -36,7 +41,7 @@ async def startup_db_client():
 @app.on_event("shutdown")
 async def shutdown_db_client():
     app.mongo_conn.close()
-
+    app.db_engine.dispose()
 
 app.include_router(base.base_router)
 app.include_router(data.data_router)
